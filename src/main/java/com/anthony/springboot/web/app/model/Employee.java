@@ -164,7 +164,7 @@ public class Employee {
 
 	public Employee_vaccinated getEmployee_vaccinated() {
 		return employee_vaccinated;
-	}
+	} 
 
 
 
