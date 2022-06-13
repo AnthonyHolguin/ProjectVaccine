@@ -36,6 +36,11 @@ public class Employee_vaccinated {
 	private Employee employee;
 
 	
+	public Employee_vaccinated() {
+		 
+		// TODO Auto-generated constructor stub
+	}
+
 	public Employee_vaccinated(Long id_employee_vaccinated, @NotNull int dose, @NotNull Date vaccinationDate,
 			Vaccine vaccine, Employee employee) {
 		super();

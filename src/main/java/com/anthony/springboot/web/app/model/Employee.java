@@ -11,34 +11,51 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
  
 
 @Entity
-@Table (name="Employee")
+@Table (name="employee") 
 public class Employee {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_employee",columnDefinition = "serial")
 	private Long idEmployee;
+	
 	@NotNull
+	@Pattern(regexp = "[A-Za-z]+", message="El nombre solo puede tener letras")
+	@NotBlank(message="El nombre de usuario no puede estar vacío")
 	private String names;
 	 
 	@NotNull
+	@Column(name = "last_names")
+	@Pattern(regexp = "[A-Za-z]+", message="El apellido solo puede tener letras")
+	@NotBlank(message="El apellido de usuario no puede estar vacío")
 	private String lastNames;
 	
 	@NotNull
+	@Column(name = "identification_card")
+	@Size(min = 10, max=10, message = "La cedula debe tener 10 digitos")
+	@Pattern(regexp="[0-9]+",message="Cedula incorrecta")
 	private String identificationCard;
 	
 	@NotNull
+	@Email(message = "El formato de corrreo no es válido." )
 	private String email;
 
+	@Column(name = "birth_date")
 	private Date birthDate;
 	
+	@Column(name = "home_address")
 	private String homeAddress;
 	 
+	@Column(name = "mobile_phone")
 	private String mobilePhone;
 	
 	
@@ -47,6 +64,7 @@ public class Employee {
 	@JoinColumn(name = "id_user", referencedColumnName = "id_user")
 	private Users users;
 	
+	@Column(name = "status_vaccine")
 	private boolean statusVaccine;
 	
 	

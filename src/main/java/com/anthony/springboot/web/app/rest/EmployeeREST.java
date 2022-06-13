@@ -89,7 +89,7 @@ public class EmployeeREST {
 			employeeActual.setStatusVaccine(employee.isStatusVaccine());
 			
 			if(employeeActual.isStatusVaccine()) {
-				Employee_vaccinated tempEmployeeVaccinated2 = employeeActual.getEmployee_vaccinated();
+				Employee_vaccinated tempEmployeeVaccinated2 = employee.getEmployee_vaccinated();
 				
 				Employee tem2=  tempEmployeeVaccinated2.getEmployee();
 				tem2.setIdEmployee(idEmployee);
@@ -126,5 +126,20 @@ public class EmployeeREST {
 	private ResponseEntity<Optional<Employee>> listEmployeebyId(@PathVariable("idEmployee") Long idEmployee){
 		return ResponseEntity.ok(employeeServices.finById(idEmployee));
 	}
+	
+	/*@GetMapping(value = "/byvaccine/{id_vaccine}")
+	private ResponseEntity<Employee> filterByVaccine(@PathVariable("id_vaccine") String id_vaccine){
+		return ResponseEntity.ok(employeeServices.filterByVaccine(id_vaccine));
+	}
+	
+	@GetMapping(value = "/bydate/{date1}/{date2}")
+	private ResponseEntity<Employee> filterByVaccinationDate(@PathVariable("date1") String date1,@PathVariable("date2") String date2){
+		return ResponseEntity.ok(employeeServices.filterByVaccinationDate(date1,date2));
+	}
+	
+	@GetMapping(value = "/bystatus")
+	private ResponseEntity<Employee> filterByVaccine(){
+		return ResponseEntity.ok(employeeServices.filterByStatus());
+	}*/
 	
 }

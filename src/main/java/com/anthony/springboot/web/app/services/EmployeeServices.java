@@ -35,5 +35,16 @@ public class EmployeeServices {
 	public Employee finById2(Long id) {
 		return employeeRepository.findById(id).orElse(null);
 	}
+	/*public Employee filterByStatus() {
+		return employeeRepository.filterByStatus();
+	}
+	
+	/*public Employee filterByVaccinationDate(String date1, String date2) {
+		return employeeRepository.filterByVaccinationDate(date1, date2);
+	}
+	
+	public Employee filterByVaccine(String id_vaccine) {
+		return employeeRepository.filterByVaccine(id_vaccine);
+	}*/
 }
 
