@@ -49,4 +49,8 @@ Usamos el metodo PUT para actualizar, este JSON de ejemplo
         "type":"EM"}      
 }
 
+-si queremos realizar una busqueda por estado de vacunacion usamos el siguiene url
+http://localhost:8080/api/employee/bystatus
+-si queremos realizar una consulta por vacuna, se le pasa la id de la vacuna en el path.
+http://localhost:8080/api/employee/byvaccine/1
 	
