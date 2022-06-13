@@ -20,7 +20,7 @@ public class UsersServices {
 		return usersRepository.save(users);
 	}
 	
-	public String findUserByUserNamePassword(String username,String password) {
+	public List<Users> findUserByUserNamePassword(String username,String password) {
 		return usersRepository.findUserSession(username, password);
 	}
 

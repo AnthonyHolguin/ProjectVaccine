@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
@@ -19,14 +20,15 @@ import javax.validation.constraints.Size;
 
  
 
-@Entity
+@Entity(name = "employee")
 @Table (name="employee") 
+@NamedQuery(name="Employee.findAll", query="SELECT e FROM employee e")
 public class Employee {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_employee",columnDefinition = "serial")
-	private Long idEmployee;
+	private Long id_employee;
 	
 	@NotNull
 	@Pattern(regexp = "[A-Za-z]+", message="El nombre solo puede tener letras")
@@ -82,7 +84,7 @@ public class Employee {
 			@NotNull String identificationCard, @NotNull String email, Date birthDate, String homeAddress,
 			String mobilePhone, Users users, boolean statusVaccine, Employee_vaccinated employeeVaccinated) {
 		super();
-		this.idEmployee = idEmployee;
+		this.id_employee = idEmployee;
 		this.names = names;
 		this.lastNames = lastNames;
 		this.identificationCard = identificationCard;
@@ -99,11 +101,11 @@ public class Employee {
 
 
 	public Long getIdEmployee() {
-		return idEmployee;
+		return id_employee;
 	}
 
 	public void setIdEmployee(Long idEmployee) {
-		this.idEmployee = idEmployee;
+		this.id_employee = idEmployee;
 	}
 
 	public String getNames() {

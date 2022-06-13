@@ -10,7 +10,7 @@ import com.anthony.springboot.web.app.model.Users;
 
 public interface UsersRepository extends JpaRepository<Users, Long>{ 
 
-	@Query("select u.type  from Users u where u.user_name= ?1 and u.password = ?2")
-	String findUserSession(String username,String password);
+	@Query("select u  from users u where u.user_name= ?1 and u.password = ?2")
+	List<Users> findUserSession(String username,String password);
 }
  

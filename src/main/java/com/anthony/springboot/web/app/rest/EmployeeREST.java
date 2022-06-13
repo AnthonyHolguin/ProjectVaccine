@@ -1,7 +1,9 @@
 package com.anthony.springboot.web.app.rest;
 
 import java.net.URI;
+import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -127,19 +129,19 @@ public class EmployeeREST {
 		return ResponseEntity.ok(employeeServices.finById(idEmployee));
 	}
 	
-	/*@GetMapping(value = "/byvaccine/{id_vaccine}")
-	private ResponseEntity<Employee> filterByVaccine(@PathVariable("id_vaccine") String id_vaccine){
+	@GetMapping(value = "/byvaccine/{id_vaccine}")
+	private ResponseEntity<Optional<Employee>> filterByVaccine(@PathVariable("id_vaccine") Long id_vaccine){
 		return ResponseEntity.ok(employeeServices.filterByVaccine(id_vaccine));
 	}
 	
-	@GetMapping(value = "/bydate/{date1}/{date2}")
-	private ResponseEntity<Employee> filterByVaccinationDate(@PathVariable("date1") String date1,@PathVariable("date2") String date2){
+	/*@GetMapping(value = "/bydate/{date1}/{date2}")
+	private ResponseEntity<Optional<Employee>> filterByVaccinationDate(@PathVariable("date1") java.sql.Date date1,@PathVariable("date2") java.sql.Date date2){
 		return ResponseEntity.ok(employeeServices.filterByVaccinationDate(date1,date2));
-	}
-	
-	@GetMapping(value = "/bystatus")
-	private ResponseEntity<Employee> filterByVaccine(){
-		return ResponseEntity.ok(employeeServices.filterByStatus());
 	}*/
+	
+	@GetMapping(value = "/bystatus") 
+	private ResponseEntity<Optional<Employee>> filterByVaccine(){
+		return ResponseEntity.ok(employeeServices.filterByStatus());
+	}
 	
 }

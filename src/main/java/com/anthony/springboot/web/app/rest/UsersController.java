@@ -29,13 +29,13 @@ public class UsersController {
 	
 	@PostMapping
 	public ResponseEntity<?> login(HttpServletRequest http,@RequestParam String username, @RequestParam String password){
-		String users = usersServices.findUserByUserNamePassword(username, password);
+		List<Users> users = usersServices.findUserByUserNamePassword(username, password);
 		this.http = http;
 		if(users==null) {
 			ErrorDetails errorDetails = new ErrorDetails(new Date(),"Error ", "Usuario o contraseña incorrectos" );
 			return new  ResponseEntity<>( errorDetails,HttpStatus.FORBIDDEN);
 		}else {
-			http.getSession().setAttribute("session", users);
+			http.getSession().setAttribute("session", users.get(0).getType());
 		return ResponseEntity.ok(users);
 		}
 	}
