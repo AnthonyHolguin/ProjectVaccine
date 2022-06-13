@@ -1,0 +1,31 @@
+spring:
+ jpa:
+  database:
+   POSTGRESQL
+  show-sql:
+   true
+  generate-ddl:
+   true
+  hibernate:
+   ddl-auto:
+    create-drop
+  properties:
+   hibernate:
+    jdbc:
+     lob:
+      non_contextual_creation:
+       true
+ sql:
+  init:
+   platform:
+    postgres
+ datasource:
+  url:
+   jdbc:postgresql://localhost:5432/system_vaccine
+  driver-class-name:
+   org.postgresql.Driver
+  username:
+   postgres
+  password:
+   12345
+
